@@ -1,4 +1,4 @@
-CREATE TABLE BOOKS(
+CREATE TABLE Books(
     book_id INT PRIMARY KEY,
     title VARCHAR(130),
     author_id INT,
@@ -15,7 +15,6 @@ CREATE TABLE Author(
 );
 
 ALTER TABLE books
-ADD CONSTRAINT fk_author
 FOREIGN KEY (author_id) REFERENCES Author(author_id);
 
 CREATE TABLE Customers(
