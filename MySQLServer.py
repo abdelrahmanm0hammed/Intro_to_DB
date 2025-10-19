@@ -11,10 +11,10 @@ try:
     mycursor = mydb.cursor()
 
     # Execute the CREATE DATABASE command
-    alx_book_store = "alx_book_store"
-    mycursor.execute(f"CREATE DATABASE IF NOT EXISTS {alx_book_store}")
+    
+    mycursor.execute(f"CREATE DATABASE IF NOT EXISTS alx_book_store")
 
-    print(f"Database '{alx_book_store}' created successfully.")
+    print(f"Database alx_book_store created successfully.")
 
 except mysql.connector.Error as err:
     print(f"Error creating database: {err}")
@@ -24,3 +24,4 @@ finally:
         mycursor.close()
 
         mydb.close()
+
