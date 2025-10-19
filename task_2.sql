@@ -8,15 +8,15 @@ CREATE TABLE Books(
 );
 
 
-CREATE TABLE Author(
+CREATE TABLE Authors(
 
     author_id INT PRIMARY KEY,
     author_name VARCHAR(215)
 
 );
 
-ALTER TABLE books
-ADD CONSTRAINT fk_author
+ALTER TABLE Books
+
 FOREIGN KEY (author_id) REFERENCES Author(author_id);
 
 CREATE TABLE Customers(
@@ -40,6 +40,6 @@ CREATE TABLE Order_Details(
     book_id INT,
     quantity DOUBLE,
     FOREIGN KEY (order_id) REFERENCES Orders(order_id),
-    FOREIGN KEY (book_id) REFERENCES books(book_id)
+    FOREIGN KEY (book_id) REFERENCES Books(book_id)
 
 );
