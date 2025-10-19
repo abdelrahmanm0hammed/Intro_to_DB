@@ -1,0 +1,44 @@
+CREATE TABLE BOOKS(
+    book_id INT PRIMARY KEY,
+    title VARCHAR(130),
+    author_id INT,
+    price DOUBLE,
+    publication_date DATE
+);
+
+
+CREATE TABLE Author(
+
+    author_id INT PRIMARY KEY,
+    author_name VARCHAR(215)
+
+);
+
+ALTER TABLE books
+ADD CONSTRAINT fk_author
+FOREIGN KEY (author_id) REFERENCES Author(author_id);
+
+CREATE TABLE Customers(
+    customer_id INT PRIMARY KEY,
+    customer_name VARCHAR(215),
+    email VARCHAR(215),
+    address TEXT
+
+);
+
+CREATE TABLE Orders(
+    order_id INT PRIMARY KEY,
+    customer_id INT ,
+    order_date DATE,
+    FOREIGN KEY (customer_id) REFERENCES Customers(customer_id)
+);
+
+CREATE TABLE Order_Details(
+    orderdatailid INT PRIMARY KEY,
+    order_id INT,
+    book_id INT,
+    quantity DOUBLE,
+    FOREIGN KEY (order_id) REFERENCES Orders(order_id),
+    FOREIGN KEY (book_id) REFERENCES books(book_id)
+
+);
