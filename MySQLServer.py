@@ -12,7 +12,7 @@ try:
 
     # Execute the CREATE DATABASE command
     alx_book_store = "alx_book_store"
-    mycursor.execute(f"CREATE DATABASE {alx_book_store}")
+    mycursor.execute(f"CREATE DATABASE IF NOT EXISTS {alx_book_store}")
 
     print(f"Database '{alx_book_store}' created successfully.")
 
@@ -22,4 +22,5 @@ except mysql.connector.Error as err:
 finally:
     if 'mydb' in locals() and mydb.is_connected():
         mycursor.close()
+
         mydb.close()
